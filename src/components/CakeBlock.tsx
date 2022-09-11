@@ -47,12 +47,12 @@ const CakeBlock: React.FC<CakeBlockProps> = ({
   };
 
   return (
-    <div className="pizza-block">
+    <div className="burger-block">
       <Link to={`cake/${id}`}>
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-        <h4 className="pizza-block__title">{title}</h4>
+        <img className="burger-block__image" src={imageUrl} alt="Pizza" />
+        <h4 className="burger-block__title">{title}</h4>
       </Link>
-      <div className="pizza-block__selector">
+      <div className="burger-block__selector">
         <ul>
           <li
           >
@@ -60,8 +60,8 @@ const CakeBlock: React.FC<CakeBlockProps> = ({
           </li>
         </ul>
       </div>
-      <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от {price} ₽</div>
+      <div className="burger-block__bottom">
+        <div className="burger-block__price">от {price} ₽</div>
         <button
           onClick={() => onClickAdd()}
           className="button button--outline button--add"

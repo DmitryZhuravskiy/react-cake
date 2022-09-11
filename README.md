@@ -14,10 +14,10 @@
 <br></br>
 Использованные технологии: React, Redux Toolkit, React Router DOM, React.Lazy, React Content Loader, Axios, Lodash.debounce,  TypeScript, SCSS. База данных - mockAPI.
 
-<img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/public/images/main.jpg "/>
+<img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/images/main.jpg "/>
 <b>Главная страница</b>
 <br /><br /><br /><br /><br />
 
-<img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/public/images/cart.jpg "/>
+<img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/images/cart.jpg "/>
 <b>Корзина товаров</b>
 <br /><br /><br /><br /><br />

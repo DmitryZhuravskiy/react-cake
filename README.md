@@ -1,7 +1,5 @@
 <h1><b>Грустно и Вкусно</b></h1>
-
-<br /><br />
-
+<br />
 <h2><b>Руководство по запуску</b></h2>
 <b>1.</b> git clone https://github.com/DmitryZhuravskiy/react-cake.git <i> - копируем репозиторий;</i><br />
 <b>2.</b> cd ./react-cake <i>- переходим в папку с локальной версией;</i><br />
@@ -16,8 +14,8 @@
 <br /><br />
 <img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/images/main.jpg "/>
 <b>Главная страница</b>
-<br /><br /><br /><br /><br />
+<br /><br /><br />
 
 <img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/images/cart.jpg "/>
 <b>Корзина товаров</b>
-<br /><br /><br /><br /><br />
+<br />

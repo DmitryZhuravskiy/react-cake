@@ -1,5 +1,8 @@
 <h1><b>Грустно и Вкусно</b></h1>
 <br />
+<h2><b>Демо на Vercel - https://react-cake.vercel.app</b></h2>
+
+https://react-cake.vercel.app
 <h2><b>Руководство по запуску</b></h2>
 <b>1.</b> git clone https://github.com/DmitryZhuravskiy/react-cake.git <i> - копируем репозиторий;</i><br />
 <b>2.</b> cd ./react-cake <i>- переходим в папку с локальной версией;</i><br />

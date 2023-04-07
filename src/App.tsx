@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import React, { Suspense } from "react";
+import Fag from "./pages/Fag/Fag";
+import Work from "./pages/Work/Work";
 
 const Cart = React.lazy(
   () => import(/* webpackChunkName: "Cart" */ "./pages/Cart")
@@ -35,6 +37,22 @@ function App() {
               element={
                 <Suspense fallback={<div>Идёт загрузка...</div>}>
                   <FullCake />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/fag"
+              element={
+                <Suspense fallback={<div>Идёт загрузка...</div>}>
+                  <Fag />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/work"
+              element={
+                <Suspense fallback={<div>Идёт загрузка...</div>}>
+                  <Work />
                 </Suspense>
               }
             />

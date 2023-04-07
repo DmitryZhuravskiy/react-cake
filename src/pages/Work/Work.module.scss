@@ -1,0 +1,128 @@
+.workHeader {
+  padding: 10px 80px;
+}
+.workTitle {
+  max-width: 750px;
+  color: rgba(38, 112, 201, 0.9);
+  font-weight: 700;
+  padding-bottom: 20px;
+  font-size: 60px;
+  line-height: 100%;
+}
+.workSlogan {
+  color: #216eba;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 600;
+  padding-bottom: 40px;
+  max-width: 750px;
+}
+.workLink {
+  display: inline-flex;
+  background-color: rgba(33, 110, 186, 0.7);
+  border: 1px solid #502314;
+  border-color: rgba(33, 110, 186, 0.9);
+  transition: background-color 0.1s ease-in-out;
+  font-size: 20px;
+  line-height: 140%;
+  padding: 18px 40px;
+  border-radius: 50px;
+  padding: 14px 19px;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+  color: #f5ebdc;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba(33, 110, 186, 0.9);
+  }
+}
+.workOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 80px;
+  flex-wrap: wrap;
+}
+.workOption {
+  width: 220px;
+  min-height: 235px;
+  padding: 24px 16px 32px;
+  background-color: #f5ebdc;
+  box-shadow: 0 2px 70px rgba(80, 35, 20, 0.1);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.workOptionImage {
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+}
+.workOptionText {
+  font-size: 17px;
+  margin-top: 16px;
+  text-align: center;
+}
+.workOptionDescription {
+  color: #845f50;
+  text-align: center;
+  margin-top: 8px;
+}
+@media (max-width: 1200px) {
+  .workHeader {
+    padding: 10px 60px;
+  }
+
+  .workOption {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .workHeader {
+    padding: 10px 50px;
+  }
+  .workOption {
+    width: 250px;
+  }
+}
+@media (max-width: 800px) {
+  .workHeader {
+    padding: 10px 50px;
+  }
+  .workOption {
+    width: 100%;
+    padding: 5px;
+    padding-left: 60px;
+    box-sizing: border-box;
+    position: relative;
+    align-items: flex-start;
+    min-height: 45px;
+  }
+  .workOptionImage {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 10px;
+  }
+  .workOptionText {
+    font-size: 18px;
+    margin-top: 0px;
+    text-align: left;
+  }
+  .workOptionDescription {
+    color: #845f50;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 5px;
+  }
+}

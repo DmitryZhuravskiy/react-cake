@@ -76,11 +76,190 @@
   text-align: center;
   margin-top: 8px;
 }
+
+// Блок карьера и перспективы
+.workProfessions {
+  background: #efbff2;
+  padding: 40px 0;
+}
+.workProfession {
+  cursor: pointer;
+  border-top: 1px transparent solid;
+  border-bottom: 1px transparent solid;
+  display: flex;
+  padding: 20px 0;
+  position: relative;
+
+  &:hover {
+    .workProfessionNumber {
+      color: rgba(33, 110, 186, 1);
+    }
+    .workProfessionName {
+      color: rgba(33, 110, 186, 1);
+    }
+    .workProfessionPerspective {
+      color: rgba(33, 110, 186, 1);
+    }
+    .workProfessionExperience {
+      color: rgba(33, 110, 186, 1);
+    }
+    .workProfessionStrike1,
+    .workProfessionStrike2 {
+      background: rgba(33, 110, 186, 1);
+    }
+  }
+}
+.workProfessions .workProfessionActive {
+  display: flex;
+  position: relative;
+  padding: 20px 0;
+  border-top: 1px rgba(33, 110, 186, 1) solid;
+  border-bottom: 1px rgba(33, 110, 186, 1) solid;
+  .workProfessionNumber {
+    color: black;
+  }
+  .workProfessionName {
+    color: black;
+  }
+  .workProfessionPerspective {
+    color: black;
+  }
+  .workProfessionExperience {
+    color: black;
+  }
+  .workProfessionStrike1,
+  .workProfessionStrike2 {
+    background: black;
+  }
+}
+.workProfessionsTitle {
+  color: white;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.workProfessionsMainWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.workProfessionsWrapper {
+  width: 70%;
+}
+.workProfessionWrapper {
+  flex-grow: 20;
+}
+.workProfessionNumber {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 32px;
+  line-height: 110%;
+  text-align: center;
+}
+.workProfessionSecondWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.workProfessionName {
+  color: #502314;
+  font-size: 22px;
+  line-height: 30px;
+  flex-grow: 20;
+  margin-bottom: 5px;
+}
+.workProfessionExperience {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: right;
+  font-weight: 500;
+  font-size: 13px;
+  color: white;
+  padding-right: 80px;
+  margin-left: 10px;
+}
+.workProfessionPerspective {
+  color: white;
+  max-width: 250px;
+  font-size: 13px;
+  line-height: 14px;
+}
+.workProfessionStrikes {
+  position: absolute;
+  top: 37px;
+  right: 40px;
+}
+.workProfessionStrike1,
+.workProfessionStrike2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+}
+.workProfessionStrike2 {
+  transform: rotate(-45deg);
+  top: 10px;
+  right: 0px;
+}
+
+.workProfessionSidebar {
+  border-radius: 25px;
+  border: 2px white solid;
+  margin-left: 40px;
+  width: 700px;
+
+  .workProfessionImage {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 290px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  .workProfessionSidebarWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px 10px;
+  }
+  .workProfessionSidebarName {
+    font-size: 22px;
+    color: #502314;
+  }
+  .workProfessionSidebarExperience {
+    text-align: right;
+    font-size: 16px;
+    color: white;
+  }
+  .workProfessionSidebarText {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin-top: 20px;
+  }
+  .workProfessionSidebarLink {
+    font-size: 18px;
+    color: #198737;
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 1200px) {
   .workHeader {
     padding: 10px 60px;
   }
-
   .workOption {
     width: 300px;
   }
@@ -125,4 +304,130 @@
     text-align: left;
     margin-top: 5px;
   }
+
+  .workProfessionSidebar {
+    border-radius: 20px;
+    margin-left: 20px;
+    width: 400px;
+
+    .workProfessionImage {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      height: 250px;
+    }
+    .workProfessionSidebarWrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0px 10px;
+    }
+    .workProfessionSidebarName {
+      font-size: 22px;
+      color: #502314;
+    }
+    .workProfessionSidebarExperience {
+      text-align: right;
+      font-size: 16px;
+      color: white;
+    }
+    .workProfessionSidebarText {
+      font-size: 16px;
+      font-weight: 500;
+      padding: 0 10px;
+      margin-top: 20px;
+    }
+    .workProfessionSidebarLink {
+      font-size: 18px;
+      color: #198737;
+      text-align: right;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+  }
+  .workProfession {
+    padding: 20px 0;
+
+    &:hover {
+      .workProfessionNumber {
+        color: rgba(33, 110, 186, 1);
+      }
+      .workProfessionName {
+        color: rgba(33, 110, 186, 1);
+      }
+      .workProfessionPerspective {
+        color: rgba(33, 110, 186, 1);
+      }
+      .workProfessionExperience {
+        color: rgba(33, 110, 186, 1);
+      }
+      .workProfessionStrike1,
+      .workProfessionStrike2 {
+        background: rgba(33, 110, 186, 1);
+      }
+    }
+  }
+  .workProfessionStrikes {
+    position: absolute;
+    right: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .workProfessionImage {
+    width: 150;
+    height: 150px;
+    background-size: cover;
+  }
+  .workProfessionSidebar {
+    border-radius: 20px;
+    margin-left: 20px;
+    width: 200px;
+  }
+}
+//Форма
+.workFormWrapper {
+  display: block;
+  padding: 20px 80px;
+  box-sizing: border-box;
+  border-radius: 50px;
+}
+.workFormTitle {
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 110%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: rgba(38, 112, 201, 0.9);
+}
+.workForm {
+  width: 550px;
+  margin: 0 auto;
+}
+.workFormInput {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(38, 112, 201, 0.9);
+  color: white;
+  border: 1px white solid;
+  outline: none;
+  font-size: 16px;
+  line-height: 18px;
+}
+.workFormSubmit {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background: rgba(38, 112, 201, 0.9);
+  color: white;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 500;
 }

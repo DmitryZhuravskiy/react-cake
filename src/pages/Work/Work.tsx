@@ -47,6 +47,61 @@ const data = [
 
 const Work = () => {
   const [id, setId] = useState(0);
+  const [post, setPost] = useState("");
+  const [postWrapper, setPostWrapper] = useState(false);
+  const [town, setTown] = useState("");
+  const [townWrapper, setTownWrapper] = useState(false);
+  const [citizenship, setСitizenship] = useState("");
+  const [citizenshipWrapper, setСitizenshipWrapper] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [patronymic, setPatronymic] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState("");
+  const [galka, setGalka] = useState(false);
+
+  const tongleCheckbox = () => {
+    if (galka === true) {
+      setGalka(false);
+    } else {
+      setGalka(true);
+    }
+  };
+
+  const tonglePostClick = () => {
+    if (postWrapper === true) {
+      setPostWrapper(false);
+    } else {
+      setPostWrapper(true);
+    }
+  };
+  const postClicker = (postWord: string) => {
+    setPost(postWord);
+    tonglePostClick();
+  };
+  const tongleTownClick = () => {
+    if (townWrapper === true) {
+      setTownWrapper(false);
+    } else {
+      setTownWrapper(true);
+    }
+  };
+  const townClicker = (townWord: string) => {
+    setTown(townWord);
+    tongleTownClick();
+  };
+  const tongleСitizenshipClick = () => {
+    if (citizenshipWrapper === true) {
+      setСitizenshipWrapper(false);
+    } else {
+      setСitizenshipWrapper(true);
+    }
+  };
+  const citizenshipClicker = (townWord: string) => {
+    setСitizenship(townWord);
+    tongleСitizenshipClick();
+  };
+
   return (
     <div>
       <section className={styles.workHeader}>
@@ -270,19 +325,172 @@ const Work = () => {
       <section className={styles.workFormWrapper}>
         <h2 className={styles.workFormTitle}>Отправить анкету</h2>
         <form action="post" className={styles.workForm}>
-          <input type="text" value="" placeholder="Выберите должность" className={styles.workFormInput} />
-          <input type="text" value="" placeholder="Выберите город" className={styles.workFormInput}  />
-          <input type="text" placeholder="Фамилия" className={styles.workFormInput}  />
-          <input type="text" placeholder="Имя" className={styles.workFormInput}  />
-          <input type="text" placeholder="Отчество" className={styles.workFormInput}  />
-          <input type="text" value="" placeholder="Гражданство" className={styles.workFormInput}  />
-          <input type="date" value="" placeholder="Дата рождения" className={styles.workFormInput}  />
-          <input type="tel" value="" placeholder="Телефон" className={styles.workFormInput}  />
-          <input type="checkbox" name="agree" id="1" className={styles.workFormInputChecbox}  />{" "}
-          <label htmlFor="1" className={styles.workFormLabel} >
+          <div className={styles.workFormInputWrapper}>
+            <input
+              type="text"
+              value={post}
+              placeholder="Выберите должность"
+              className={styles.workFormInput}
+              onClick={() => tonglePostClick()}
+            />
+            {postWrapper && (
+              <div className={styles.workFormInputSecondWrapper}>
+                <p className={styles.workFormInputTitle}>Выберите должность</p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => postClicker("Сотрудник ресторана")}
+                >
+                  Сотрудник ресторана
+                </p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => postClicker("Курьер")}
+                >
+                  Курьер
+                </p>
+              </div>
+            )}
+          </div>
+          <div className={styles.workFormInputWrapper}>
+            <input
+              type="text"
+              value={town}
+              placeholder="Выберите город"
+              className={styles.workFormInput}
+              onClick={() => tongleTownClick()}
+            />
+            {townWrapper && (
+              <div className={styles.workFormInputSecondWrapper}>
+                <p className={styles.workFormInputTitle}>Выберите город</p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => townClicker("Москва")}
+                >
+                  Москва
+                </p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => townClicker("Санкт-Петербург")}
+                >
+                  Санкт-Петербург
+                </p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => townClicker("Екатеринбург")}
+                >
+                  Екатеринбург
+                </p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => townClicker("Владивосток")}
+                >
+                  Владивосток
+                </p>
+              </div>
+            )}
+          </div>
+          <input
+            type="text"
+            placeholder="Фамилия"
+            className={styles.workFormInput}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Имя"
+            className={styles.workFormInput}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Отчество"
+            className={styles.workFormInput}
+            value={patronymic}
+            onChange={(e) => setPatronymic(e.target.value)}
+          />
+          <div className={styles.workFormInputWrapper}>
+            <input
+              type="text"
+              value={citizenship}
+              placeholder="Гражданство"
+              className={styles.workFormInput}
+              onClick={() => tongleСitizenshipClick()}
+            />
+            {citizenshipWrapper && (
+              <div className={styles.workFormInputSecondWrapper}>
+                <p className={styles.workFormInputTitle}>Гражданство</p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => citizenshipClicker("Россия")}
+                >
+                  Россия
+                </p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => citizenshipClicker("Вид на жительство")}
+                >
+                  Вид на жительство
+                </p>
+                <p
+                  className={styles.workFormInputInner}
+                  onClick={() => citizenshipClicker("Другое")}
+                >
+                  Другое
+                </p>
+              </div>
+            )}
+          </div>
+          <input
+            type="date"
+            placeholder="Дата рождения"
+            className={styles.workFormInput}
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
+          />
+          <input
+            type="tel"
+            placeholder="Телефон"
+            className={styles.workFormInput}
+            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+          />
+          {galka === true ? (
+            <input
+              type="checkbox"
+              name="agree"
+              id="1"
+              className={styles.workFormInputChecbox}
+              onClick={() => tongleCheckbox()}
+              checked
+            />
+          ) : (
+            <input
+              type="checkbox"
+              name="agree"
+              id="1"
+              className={styles.workFormInputChecbox}
+              onClick={() => tongleCheckbox()}
+            />
+          )}
+
+          <label htmlFor="1" className={styles.workFormLabel}>
             Я принимаю согласие на обработку персональных данных
           </label>
-          <input type="submit" className={styles.workFormSubmit}  />
+          {galka === true ? (
+            <input
+              type="submit"
+              className={styles.workFormSubmit}
+              value="Отправить"
+            />
+          ) : (
+            <input
+              type="submit"
+              className={styles.workFormSubmitDisabled}
+              value="Отправить"
+            />
+          )}
         </form>
       </section>
     </div>

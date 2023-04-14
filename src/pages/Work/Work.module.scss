@@ -417,8 +417,10 @@
   outline: none;
   font-size: 16px;
   line-height: 18px;
+  cursor: pointer;
 }
-.workFormSubmit {
+.workFormSubmit,
+.workFormSubmitDisabled {
   display: block;
   margin: 20px auto;
   padding: 15px 20px;
@@ -430,4 +432,39 @@
   font-size: 18px;
   line-height: 20px;
   font-weight: 500;
+  cursor: pointer;
+}
+.workFormInputWrapper {
+  position: relative;
+}
+.workFormInputSecondWrapper {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px black solid;
+  box-sizing: border-box;
+  padding: 10px 0;
+  border-radius: 10px;
+  z-index: 2;
+}
+.workFormInputTitle {
+  padding: 5px 10px;
+}
+.workFormInputInner {
+  cursor: pointer;
+  padding: 5px 10px;
+
+  &:hover {
+    background: rgba(33, 110, 186, 0.5);
+    color: white;
+  }
+}
+.workFormSubmitDisabled {
+  background: gray;
+  cursor: default;
+}
+.workFormLabel {
+  padding-left: 8px;
 }

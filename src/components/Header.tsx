@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import Search from "./Search/index";
 import { useSelector } from "react-redux";
 import { selectCart } from "../redux/slices/cartSlice";
+import Navigation from "./Navigation/Navigation";
 
 const Header = () => {
   const location = useLocation();
@@ -76,6 +77,7 @@ const Header = () => {
           </Link>
         </div>
       </div>
+      <Navigation />
     </div>
   );
 };

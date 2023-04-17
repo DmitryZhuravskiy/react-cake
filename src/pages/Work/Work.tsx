@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Work.module.scss";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const data = [
   {
@@ -46,61 +47,30 @@ const data = [
 ];
 
 const Work = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    mode: "onBlur",
+    defaultValues: {
+      post: "",
+      town: "",
+      citizenship: "",
+      lastName: "",
+      firstName: "",
+      patronymic: "",
+      date: "",
+      phone: "",
+      check: "",
+    },
+  });
+  const onSubmit = (data: object) => {
+    alert(JSON.stringify(data));
+    reset();
+  };
   const [id, setId] = useState(0);
-  const [post, setPost] = useState("");
-  const [postWrapper, setPostWrapper] = useState(false);
-  const [town, setTown] = useState("");
-  const [townWrapper, setTownWrapper] = useState(false);
-  const [citizenship, setСitizenship] = useState("");
-  const [citizenshipWrapper, setСitizenshipWrapper] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [patronymic, setPatronymic] = useState("");
-  const [phone, setPhone] = useState("");
-  const [date, setDate] = useState("");
-  const [galka, setGalka] = useState(false);
-
-  const tongleCheckbox = () => {
-    if (galka === true) {
-      setGalka(false);
-    } else {
-      setGalka(true);
-    }
-  };
-
-  const tonglePostClick = () => {
-    if (postWrapper === true) {
-      setPostWrapper(false);
-    } else {
-      setPostWrapper(true);
-    }
-  };
-  const postClicker = (postWord: string) => {
-    setPost(postWord);
-    tonglePostClick();
-  };
-  const tongleTownClick = () => {
-    if (townWrapper === true) {
-      setTownWrapper(false);
-    } else {
-      setTownWrapper(true);
-    }
-  };
-  const townClicker = (townWord: string) => {
-    setTown(townWord);
-    tongleTownClick();
-  };
-  const tongleСitizenshipClick = () => {
-    if (citizenshipWrapper === true) {
-      setСitizenshipWrapper(false);
-    } else {
-      setСitizenshipWrapper(true);
-    }
-  };
-  const citizenshipClicker = (townWord: string) => {
-    setСitizenship(townWord);
-    tongleСitizenshipClick();
-  };
 
   return (
     <div>
@@ -324,173 +294,181 @@ const Work = () => {
       </section>
       <section className={styles.workFormWrapper}>
         <h2 className={styles.workFormTitle}>Отправить анкету</h2>
-        <form action="post" className={styles.workForm}>
+        <form className={styles.workForm} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.workFormInputWrapper}>
-            <input
-              type="text"
-              value={post}
-              placeholder="Выберите должность"
+            <select
+              {...register("post", {
+                required: "Должность обязательно к заполнению",
+              })}
               className={styles.workFormInput}
-              onClick={() => tonglePostClick()}
-            />
-            {postWrapper && (
-              <div className={styles.workFormInputSecondWrapper}>
-                <p className={styles.workFormInputTitle}>Выберите должность</p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => postClicker("Сотрудник ресторана")}
-                >
-                  Сотрудник ресторана
-                </p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => postClicker("Курьер")}
-                >
-                  Курьер
-                </p>
-              </div>
-            )}
+            >
+              <option value="" className={styles.workFormInput}>
+                Выберите должность
+              </option>
+              <option value="Курьер" className={styles.workFormInput}>
+                Курьер
+              </option>
+              <option
+                value="Сотрудник ресторана"
+                className={styles.workFormInput}
+              >
+                Сотрудник ресторана
+              </option>
+            </select>
+            <div className={styles.workErrorMessage}>
+              {errors?.post && <p>{errors?.post?.message || "Error!"}</p>}
+            </div>
           </div>
           <div className={styles.workFormInputWrapper}>
-            <input
-              type="text"
-              value={town}
-              placeholder="Выберите город"
+            <select
+              {...register("town", {
+                required: "Город обязательно к заполнению",
+              })}
               className={styles.workFormInput}
-              onClick={() => tongleTownClick()}
-            />
-            {townWrapper && (
-              <div className={styles.workFormInputSecondWrapper}>
-                <p className={styles.workFormInputTitle}>Выберите город</p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => townClicker("Москва")}
-                >
-                  Москва
-                </p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => townClicker("Санкт-Петербург")}
-                >
-                  Санкт-Петербург
-                </p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => townClicker("Екатеринбург")}
-                >
-                  Екатеринбург
-                </p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => townClicker("Владивосток")}
-                >
-                  Владивосток
-                </p>
-              </div>
-            )}
+            >
+              <option value="" className={styles.workFormInput}>
+                Выберите город
+              </option>
+              <option value="Москва" className={styles.workFormInput}>
+                Москва
+              </option>
+              <option value="Санкт-Петербург" className={styles.workFormInput}>
+                Санкт-Петербург
+              </option>
+              <option value="Екатеринбург" className={styles.workFormInput}>
+                Екатеринбург
+              </option>
+              <option value="Владивосток" className={styles.workFormInput}>
+                Владивосток
+              </option>
+            </select>
+            <div className={styles.workErrorMessage}>
+              {errors?.town && <p>{errors?.town?.message || "Error!"}</p>}
+            </div>
           </div>
           <input
             type="text"
             placeholder="Фамилия"
             className={styles.workFormInput}
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            {...register("lastName", {
+              required: "Фамилия обязательно к заполнению",
+              minLength: {
+                value: 3,
+                message: "Минимум 3 символа",
+              },
+            })}
           />
+          <div className={styles.workErrorMessage}>
+            {errors?.lastName && <p>{errors?.lastName?.message || "Error!"}</p>}
+          </div>
           <input
             type="text"
             placeholder="Имя"
             className={styles.workFormInput}
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            {...register("firstName", {
+              required: "Имя обязательно к заполнению",
+              minLength: {
+                value: 3,
+                message: "Минимум 3 символа",
+              },
+            })}
           />
+          <div className={styles.workErrorMessage}>
+            {errors?.firstName && (
+              <p>{errors?.firstName?.message || "Error!"}</p>
+            )}
+          </div>
           <input
             type="text"
             placeholder="Отчество"
             className={styles.workFormInput}
-            value={patronymic}
-            onChange={(e) => setPatronymic(e.target.value)}
+            {...register("patronymic", {
+              required: "Отчество обязательно к заполнению",
+              minLength: {
+                value: 6,
+                message: "Минимум 6 символов",
+              },
+            })}
           />
+          <div className={styles.workErrorMessage}>
+            {errors?.patronymic && (
+              <p>{errors?.patronymic?.message || "Error!"}</p>
+            )}
+          </div>
           <div className={styles.workFormInputWrapper}>
-            <input
-              type="text"
-              value={citizenship}
-              placeholder="Гражданство"
+            <select
+              {...register("citizenship", {
+                required: "Гражданство обязательно к заполнению",
+              })}
               className={styles.workFormInput}
-              onClick={() => tongleСitizenshipClick()}
-            />
-            {citizenshipWrapper && (
-              <div className={styles.workFormInputSecondWrapper}>
-                <p className={styles.workFormInputTitle}>Гражданство</p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => citizenshipClicker("Россия")}
-                >
-                  Россия
-                </p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => citizenshipClicker("Вид на жительство")}
-                >
-                  Вид на жительство
-                </p>
-                <p
-                  className={styles.workFormInputInner}
-                  onClick={() => citizenshipClicker("Другое")}
-                >
-                  Другое
-                </p>
-              </div>
+            >
+              <option value="" className={styles.workFormInput}>
+                Гражданство
+              </option>
+              <option value="Россия" className={styles.workFormInput}>
+                Россия
+              </option>
+              <option
+                value="Вид на жительство"
+                className={styles.workFormInput}
+              >
+                Вид на жительство
+              </option>
+              <option value="Другое" className={styles.workFormInput}>
+                Другое
+              </option>
+            </select>
+          </div>
+          <div className={styles.workErrorMessage}>
+            {errors?.citizenship && (
+              <p>{errors?.citizenship?.message || "Error!"}</p>
             )}
           </div>
           <input
             type="date"
             placeholder="Дата рождения"
             className={styles.workFormInput}
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
+            {...register("date", {
+              required: "Дата рождения должна быть указана",
+              valueAsDate: true,
+            })}
           />
+          <div className={styles.workErrorMessage}>
+            {errors?.date && <p>{errors?.date?.message || "Error!"}</p>}
+          </div>
           <input
             type="tel"
             placeholder="Телефон"
             className={styles.workFormInput}
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone}
+            {...register("phone", {
+              required: "Забыли написать телефон",
+              pattern: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+            })}
           />
-          {galka === true ? (
-            <input
-              type="checkbox"
-              name="agree"
-              id="1"
-              className={styles.workFormInputChecbox}
-              onClick={() => tongleCheckbox()}
-              checked
-            />
-          ) : (
-            <input
-              type="checkbox"
-              name="agree"
-              id="1"
-              className={styles.workFormInputChecbox}
-              onClick={() => tongleCheckbox()}
-            />
-          )}
+          <div className={styles.workErrorMessage}>
+            {errors?.phone && <p>{errors?.phone?.message || "Error!"}</p>}
+          </div>
+
+          <input
+            type="checkbox"
+            id="1"
+            className={styles.workFormInputChecbox}
+            {...register("check", {
+              required: "Требуется согласие на обработку данных",
+            })}
+          />
 
           <label htmlFor="1" className={styles.workFormLabel}>
             Я принимаю согласие на обработку персональных данных
           </label>
-          {galka === true ? (
-            <input
-              type="submit"
-              className={styles.workFormSubmit}
-              value="Отправить"
-            />
-          ) : (
-            <input
-              type="submit"
-              className={styles.workFormSubmitDisabled}
-              value="Отправить"
-            />
-          )}
+          <div className={styles.workErrorMessage}>
+            {errors?.check && <p>{errors?.check?.message || "Error!"}</p>}
+          </div>
+          <input
+            type="submit"
+            className={styles.workFormSubmit}
+            value="Отправить"
+          />
         </form>
       </section>
     </div>

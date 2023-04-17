@@ -12,6 +12,7 @@ import {
   setFilter,
 } from "../redux/slices/filterSlice";
 import { fetchCakes, selectorCake } from "../redux/slices/cakeSlice";
+import Navigation from "../components/Navigation/Navigation";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();

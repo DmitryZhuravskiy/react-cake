@@ -1,0 +1,44 @@
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(38, 112, 201, 0.9);
+  margin-top: 40px;
+  padding: 10px 80px;
+
+  .navigationItem {
+    padding-right: 30px;
+  }
+  .navigationLink {
+    color: white;
+    font-size: 24px;
+    line-height: 28px;
+
+    &:hover {
+      color: #dcdcdc;
+    }
+  }
+  .navigationLinkActive {
+    font-size: 24px;
+    line-height: 28px;
+    color: black;
+  }
+}
+
+@media (max-width: 1200px) {
+    .navigation {
+        padding: 10px 60px;
+    }
+  }
+
+@media (max-width: 800px) {
+  .navigation {
+    display: block;
+    padding: 20px 40px 10px 40px;
+
+    .navigationItem {
+        padding-right: 0px;
+        padding-bottom: 10px;
+      }
+  }
+}

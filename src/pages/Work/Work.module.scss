@@ -461,10 +461,34 @@
     color: white;
   }
 }
-.workFormSubmitDisabled {
-  background: gray;
-  cursor: default;
+.workFormInputChecbox {
+  padding-bottom: 40px;
+  margin-bottom: 20px;
 }
 .workFormLabel {
   padding-left: 8px;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
+.workErrorMessage {
+  padding: 5px;
+  margin-top: -20px;
+  margin-bottom: 15px;
+
+  border-radius: 10px;
+  p {
+    color: rgba(33, 110, 186, 1);
+  }
+}
+@media (max-width: 800px) {
+  .workFormWrapper {
+    display: block;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    border-radius: 30px;
+  }
+  .workForm {
+    width: 90%;
+    margin: 0 auto;
+  }
 }

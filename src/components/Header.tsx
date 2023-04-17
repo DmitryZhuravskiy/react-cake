@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 import Search from "./Search/index";
 import { useSelector } from "react-redux";
 import { selectCart } from "../redux/slices/cartSlice";
 
 const Header = () => {
   const location = useLocation();
-  const {items, totalPrice} = useSelector(selectCart);
+  const { items, totalPrice } = useSelector(selectCart);
 
   const totalCount = items.reduce((sum: number, obj: any) => {
     return obj.count + sum;
@@ -17,14 +17,27 @@ const Header = () => {
       <div className="container">
         <Link to="/">
           <div className="header__logo">
-            <img width="38" src="https://img.lovepik.com/element/40060/7436.png_860.png" alt="Pizza logo" height="48" />
+            <img
+              width="38"
+              src="https://img.lovepik.com/element/40060/7436.png_860.png"
+              alt="Pizza logo"
+              height="48"
+            />
             <div>
               <h1>Грустно и Вкусно</h1>
               <p>Официальный спонсор Спартакиады-2022</p>
             </div>
           </div>
         </Link>
-        {location.pathname !== '/cart' && <Search />}
+        {location.pathname === "/cart" ? (
+          <></>
+        ) : location.pathname === "/work" ? (
+          <></>
+        ) : location.pathname === "/fag" ? (
+          <></>
+        ) : (
+          <Search />
+        )}
 
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">

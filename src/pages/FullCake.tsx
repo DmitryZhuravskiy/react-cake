@@ -30,7 +30,6 @@ const FullCake: React.FC = () => {
   }
   return (
     <div>
-      <img src="" alt="" />
       <h2>{cakes.title} </h2>
       <img src={cakes.imageUrl} alt="" />
       <p>

@@ -20,16 +20,16 @@
 
 <img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/images/cart.jpg "/>
 <b>Корзина товаров</b>
-<br />
+<br /><br /><br />
 
 <img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/images/cart0.jpg "/>
 <b>Пустая корзина товаров</b>
-<br />
+<br /><br /><br />
 
 <img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/images/fag.jpg "/>
 <b>Наиболее часто задаваемые вопросы</b>
-<br />
+<br /><br /><br />
 
 <img src="https://github.com/DmitryZhuravskiy/react-cake/raw/pictures/images/career.jpg "/>
 <b>Карьера</b>
-<br />
+<br /><br /><br />
